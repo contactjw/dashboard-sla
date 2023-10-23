@@ -76,10 +76,10 @@ npm run build
 
 ## Progress
 
-- [x] Upload project and install dependencies (10/20/2023)
-- [x] Update README.md (10/22/2023)
-- [ ] Migrate from Vue 2 to Vue 3
-- [ ] Add additional tools and dependencies.
+- [x] Upload project and install dependencies. (10/20/2023)
+- [x] Update README.md. (10/22/2023)
+- [x] Migrate from Vue 2 to Vue 3. (10/22/2023)
+- [x] Add additional tools and dependencies: ESLint, Prettier. (10/22/2023)
 - [ ] Add pagination: Implement pagination to show 100 rows per page for a better user experience.
 - [ ] Color coding: Color code the table based on the "Status" column to make data interpretation
       easier.

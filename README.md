@@ -1,13 +1,9 @@
 <a name="readme-top"></a>
 
-
-
 <!-- PROJECT TITLE -->
 <div align="center">
   <h3 align="center">dashboard-sla</h3>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -26,9 +22,8 @@
   </ol>
 </details>
 
-
-
 <!-- LOCAL SETUP -->
+
 ## Local Setup
 
 ### Prerequisites
@@ -44,11 +39,11 @@ These commands should print the installed Node.js and npm versions, confirming t
 
 _If checking for versions throws an error, you can install node from https://nodejs.org/en._
 
-_Update npm to the latest version using the command below._
+Update npm to the latest version using the command below.
 
-  ```sh
-  npm install npm@latest -g
-  ```
+```sh
+npm install npm@latest -g
+```
 
 ### Installation
 
@@ -77,9 +72,8 @@ npm run build
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- PROGRESS -->
+
 ## Progress
 
 - [x] Upload project and install dependencies (10/20/2023)
@@ -88,35 +82,62 @@ npm run build
 - [ ] Add additional tools and dependencies.
 - [ ] Add pagination: Implement pagination to show 100 rows per page for a better user experience.
 - [ ] Color coding: Color code the table based on the "Status" column to make data interpretation
-easier.
+      easier.
 - [ ] Adding Functionality
-    - [ ] Allow users to double-click on a cell to input data.
-    - [ ] Input values should be single-digit integers or numbers with up to two decimal points.
-    - [ ] Implement a "Save" button to save changes to the data.json file.
+  - [ ] Allow users to double-click on a cell to input data.
+  - [ ] Input values should be single-digit integers or numbers with up to two decimal points.
+  - [ ] Implement a "Save" button to save changes to the data.json file.
 - [ ] Bonus Questions (Optional)
-    - [ ] Implement a search bar to filter rows based on specific criteria.
-    - [ ] Implement client-side sorting for each column.
-    - [ ] Use state management (e.g., Vuex, Pinia) to handle data and user interactions.
+  - [ ] Implement a search bar to filter rows based on specific criteria.
+  - [ ] Implement client-side sorting for each column.
+  - [ ] Use state management (e.g., Vuex, Pinia) to handle data and user interactions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- DECISIONS -->
+
 ## Decisions
 
+- Migration from Vue 2 to Vue 3:
+
+  - I looked at the official documentation for Vue and they had a guide on migrating from Vue 2 to Vue 3. I followed most of it and updated the dependencies that were there to their latest versions by editing my package.json file myself. I knew of the npm update command, but needed to also update my package.json file to the most up-to-date compatible versions. I thought that there must have been an easier way to do this and found npm-check-updates. I also saw on Vue 3 official documentation, @vitejs/plugin-vue2 dependency was now changed to @vitejs/plugin-vue, so I had to manually add that dependency. Vue also has a migration tool that I imported in package.json "@vue/compat": "^3.3.6" that I would later get rid of after migrating.
+
+  Install npm-check-updates
+
+  ```sh
+  npm install -g npm-check-updates
+  ```
+
+  Run this command in project root directory update package.json dependencies to most recent compatible versions
+
+  ```sh
+  ncu -u
+  ```
+
+  I then deleted the node_modules folder and package-lock.json to get rid of the old dependencies and ran
+
+  ```sh
+  npm install
+  ```
+
+  My dependencies were now up-to-date using the latest versions of Vue 3 and others.
+
+  - After my dependencies were up-to-date I needed to resolve migration build warnings. I fixed build warnings by updating the main.js file to use proper Vue 3 syntax.
+
+  - I also updated App.vue and table.vue to use Vue 3's Composition API.
+
+  - After migration was finished, I used Vue Devtools to inspect the migrated components for bugs, there weren't any so I uninstalled @vue/compat package and returned vite.config.js to its original code.
+
 - Adding ESLint and Prettier:
-    - I made the decision to include these tools because, assuming we are working on a large team, it is important to maintain code consistency, catch coding errors early in the development process, reduce code review time, enforce industry best practices, and more.
+  - I made the decision to include these tools because, assuming we are working on a large team, it is important to maintain code consistency, catch coding errors early in the development process, reduce code review time, enforce industry best practices, and more.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- BONUS FEATURES -->
+
 ## Bonus Features
 
 Bonus Features (if implemented): Document how users can interact with
 additional functionalities.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-

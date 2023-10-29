@@ -80,6 +80,7 @@ npm run build
 - [x] Update README.md. (10/22/2023)
 - [x] Migrate from Vue 2 to Vue 3. (10/22/2023)
 - [x] Add additional tools and dependencies: ESLint, Prettier. (10/22/2023)
+  - [x] Add TypeScript and Vuex (Vuex for future use). (10/28/2023)
 - [ ] Add pagination: Implement pagination to show 100 rows per page for a better user experience.
 - [ ] Color coding: Color code the table based on the "Status" column to make data interpretation
       easier.
@@ -90,7 +91,7 @@ npm run build
 - [ ] Bonus Questions (Optional)
   - [ ] Implement a search bar to filter rows based on specific criteria.
   - [ ] Implement client-side sorting for each column.
-  - [ ] Use state management (e.g., Vuex, Pinia) to handle data and user interactions.
+  - [x] Use state management (e.g., Vuex, Pinia) to handle data and user interactions. (10/29/2023)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,8 +129,13 @@ npm run build
 
   - After migration was finished, I used Vue Devtools to inspect the migrated components for bugs, there weren't any so I uninstalled @vue/compat package and returned vite.config.js to its original code.
 
-- Adding ESLint and Prettier:
-  - I made the decision to include these tools because, assuming we are working on a large team, it is important to maintain code consistency, catch coding errors early in the development process, reduce code review time, enforce industry best practices, and more.
+- Adding SASS, Bootstrap 5, ESLint, Prettier, TypeScript, Pinia, and Axios (Axios for future use):
+  - I made the decision to include SASS because it offers a number of benefits for styling. The main inclination to add SASS was because of the improvements to maintainability of styling code. SASS offers variables, nesting of selectors, modularity of styles, and more.
+  - I made the decision to include Bootstrap 5 because it offers a number of pre-built components and styling classes that can make development much easier. Vue 3 also integrates well with Bootstrap 5 and can help speed up development processes in a manner that still allows for enough personalization of components.
+  - I made the decision to include ESLint and Prettier because I am assuming we are working on a large team. It is important to maintain code consistency, catch coding errors early in the development process, reduce code review time, enforce industry best practices, and make the development process as easy as possible.
+  - I made the decision to include TypeScript because it is natively supported in Vue and specifically works well with the Compositions API and Pinia (for future http requests) which I will be using. TypeScript also offers greater type safety, which brings easier code maintainability and enhanced refactoring without the fear of introducing subtle bugs. TypeScript also comes with great tooling support in VSCode.
+  - I made the decision to include Pinia because it offers state management in a much more structured and predictable way. Pinia also makes debugging problems with state management easier because of the predictable data flow and separation of concerns from components.
+  - I made the decision to include Axios assuming the project ever gets big enough where we need to make http requests to a server containing our data. Axios simplifies http requests, is easy to configure, and offers many features that help monitor and control those requests.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

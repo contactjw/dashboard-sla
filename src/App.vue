@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import TheTable from './components/Table.vue';
+import TheTable from './components/table.vue';
 </script>

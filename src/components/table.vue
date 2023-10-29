@@ -1,105 +1,11 @@
 <template>
   <div>
     <!-- Hide By status Bar -->
-    <div class="hideBar">
-      <label class="hideLabel"> Hide: </label>
-      <div class="checkbox">
-        <!-- All status -->
-        <input
-          :id="'status-' + store.productDataBystatus.status"
-          v-model="store.hidestatus"
-          type="checkbox"
-          class="styled"
-          :value="store.productDataBystatus.status"
-          @click="store.hideShowALLstatus"
-        />
-        <label :for="'status-' + store.productDataBystatus.status[0]">All statuses</label>
-
-        <!-- Dynamic status -->
-        <div v-for="status in store.productDataBystatus.status" :key="status">
-          <input
-            :id="status"
-            v-model="store.hidestatus"
-            type="checkbox"
-            class="styled"
-            :value="status"
-          />
-          <label :for="status">{{ status }}</label>
-        </div>
-      </div>
-    </div>
-
+    <ControlLabels></ControlLabels>
     <!-- Main Table Design -->
     <table>
-      <thead>
-        <tr>
-          <td :colspan="12">Dashboard SLA</td>
-        </tr>
-        <tr>
-          <th colspan="3">{{ store.wwData }}</th>
-          <th colspan="8">Product Info</th>
-        </tr>
-        <tr>
-          <th>Status</th>
-          <th>Cores</th>
-          <th class="width1">Product</th>
-          <th class="width1">Lithography</th>
-          <th>Threads</th>
-          <th>Base Freq</th>
-          <th>Max Turbo Freq</th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="(data, status) in store.productDataBystatus.data">
-          <!-- status -->
-          <tr>
-            <td class="width1" :rowspan="store.calstatusRowspan(data)">
-              {{ status }}
-            </td>
-          </tr>
-
-          <template v-for="cores in Object.keys(data)">
-            <!-- cores -->
-            <tr>
-              <td
-                class="width1"
-                :rowspan="Object.keys(data[cores as unknown as keyof typeof data]).length + 1"
-              >
-                {{ cores }}
-              </td>
-            </tr>
-
-            <tr v-for="v in data[cores as unknown as keyof typeof data]">
-              <!-- product -->
-              <td class="productColumn">{{ v.Product }}</td>
-
-              <!-- Lithography -->
-              <td>{{ v.Lithography }}</td>
-
-              <!-- Threads -->
-              <td>
-                <div class="innerCells">
-                  <input :value="v.Threads" :disabled="true" type="text" />
-                </div>
-              </td>
-
-              <!-- Base Freq -->
-              <td>
-                <div class="innerCells">
-                  <input :value="v.Base_Freq" :disabled="true" type="text" />
-                </div>
-              </td>
-
-              <!-- Max Turbo Freq -->
-              <td>
-                <div class="innerCells">
-                  <input :value="v.Max_Turbo_Freq" type="text" :disabled="true" />
-                </div>
-              </td>
-            </tr>
-          </template>
-        </template>
-      </tbody>
+      <TableHeading></TableHeading>
+      <TableBody></TableBody>
     </table>
     <!-- End of Table Design -->
   </div>
@@ -107,11 +13,14 @@
 
 <script setup lang="ts">
 import { useTableDataStore } from '../stores/tableData';
+import ControlLabels from './control-labels.vue';
+import TableHeading from './table-heading.vue';
+import TableBody from './table-body.vue';
 
 const store = useTableDataStore();
 </script>
 
-<style scoped>
+<style>
 .fas.fa-times {
   display: none;
 }

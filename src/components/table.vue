@@ -103,7 +103,6 @@
     </table>
     <!-- End of Table Design -->
   </div>
-  <Load />
 </template>
 
 <script setup lang="ts">

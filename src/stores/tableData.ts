@@ -79,6 +79,14 @@ export const useTableDataStore = defineStore('data', () => {
     () => `${wwInfo.value.year}WW${wwInfo.value.workweek}.${wwInfo.value.numofday}`
   );
 
+  const colorMapping = ref<Record<string, string>>({
+    Discontinued: 'red',
+    Launched: 'green',
+    'Launched (with IPU)': 'blue',
+    Announced: 'yellow',
+    // ... add other statuses and their corresponding colors
+  });
+
   return {
     calstatusRowspan,
     getWWFromDate,
@@ -89,5 +97,6 @@ export const useTableDataStore = defineStore('data', () => {
     allCheckBox,
     wwInfo,
     wwData,
+    colorMapping,
   };
 });

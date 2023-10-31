@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue'; // Import Composition API functions
+import axios from 'axios';
 import data from '../assets/data.json';
 
 export const useTableDataStore = defineStore('data', () => {
@@ -7,6 +8,27 @@ export const useTableDataStore = defineStore('data', () => {
   const UIData = ref<any[]>([]);
   const allCheckBox = ref<string[]>([]);
   UIData.value = data;
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch('../../public/data.json');
+  //     if (!response.ok) {
+  //       throw new Error('Failed to fetch data');
+  //     }
+  //     UIData.value = await response.json();
+  //   } catch (error) {
+  //     console.error('Failed to fetch data', error);
+  //   }
+  // };
+
+  const saveData = async () => {
+    try {
+      await axios.post('http://localhost:3001/save', data);
+      console.log('Data saved successfully');
+    } catch (error) {
+      console.error('Failed to save data', error);
+    }
+  };
 
   const calstatusRowspan = (data: { [x: string]: {} }) => {
     let sum: number = Object.keys(data).length + 1;
@@ -88,6 +110,8 @@ export const useTableDataStore = defineStore('data', () => {
   });
 
   return {
+    // fetchData,
+    saveData,
     calstatusRowspan,
     getWWFromDate,
     hideShowALLstatus,

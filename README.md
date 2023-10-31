@@ -83,11 +83,11 @@ npm run build
   - [x] Add TypeScript and Vuex (Vuex for future use). (10/28/2023)
 - [ ] Add pagination: Implement pagination to show 100 rows per page for a better user experience.
 - [x] Color coding: Color code the table based on the "Status" column to make data interpretation
-      easier. (Partially Completed: 10/29/2023)
+      easier. (Completed: 10/30/2023)
 - [ ] Adding Functionality
   - [x] Allow users to double-click on a cell to input data: See Threads Column. (Partially Completed: 10/29/2023)
   - [ ] Input values should be single-digit integers or numbers with up to two decimal points.
-  - [ ] Implement a "Save" button to save changes to the data.json file.
+  - [x] Implement a "Save" button to save changes to the data.json file (saving to the data.json file in progress).
 - [ ] Bonus Questions (Optional)
   - [ ] Implement a search bar to filter rows based on specific criteria.
   - [ ] Implement client-side sorting for each column.
@@ -139,6 +139,10 @@ npm run build
   - I made the decision to include Axios assuming the project ever gets big enough where we need to make http requests to a server containing our data. Axios simplifies http requests, is easy to configure, and offers many features that help monitor and control those requests.
 
 - Color Coding and Double Click to Enter Data:
+
+  - Color Coding was completed by creating a colorMapping in the tableData.ts Pinia store. I then checked if the status of the current item in our table.vue component was of a specific string type and created a function in table.vue script to add a :style=background-color: value, value being the mapping of the current status to the said color in tableData.ts
+
+  - Double click to enter data is in progress. I am in the process of setting up a local node and express server to handle changes to the data.json file. I plan to use axios to handle the http requests as well. I have the outline of the functions mapped out for handling a save to the data.json, but I'm in the process of setting up the node and express server.
 
   - Sadly I was on a time crunch through a few of the final features I wanted to implement, but I'm certain if I wasn't working 30-40 hours a week and doing full-time classes I could see this through to completion within 7 days. You'll notice these two features are partially completed. The double click to enter data is more like a click in the Threads column to change the data, but it is not reflected in the data.json file yet and there is no input validation yet. Color coding is set up for the Status column, but I'd like to adjust colors more and make the colors extend across the column with a lower opacity so we can still read data easily. A good chunk of my time was used for trying to integrate TypeScript and Vuex, before I found Pinia for state management which simplified the process a lot more with TypeScript.
 

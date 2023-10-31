@@ -26,6 +26,7 @@
           />
           <label :for="status">{{ status }}</label>
         </div>
+        <button @click="saveData">Save</button>
       </div>
     </div>
 
@@ -155,13 +156,14 @@ import { useTableDataStore } from '../stores/tableData';
 // import TableHeading from './table-heading.vue';
 // import TableBody from './table-body.vue';
 import { ref } from 'vue';
-
+const store = useTableDataStore();
 const isDisabled = ref(false);
 
 function handleDoubleClick() {
   isDisabled.value = true;
 }
-const store = useTableDataStore();
+
+const saveData = store.saveData;
 </script>
 
 <style scoped>

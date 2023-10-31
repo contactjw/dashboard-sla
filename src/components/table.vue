@@ -2,7 +2,7 @@
   <div>
     <!-- Hide By status Bar -->
     <div class="hideBar">
-      <label class="hideLabel"> Hide: </label>
+      <label class="hideLabel"> Select What To Hide: </label>
       <div class="checkbox">
         <!-- All status -->
         <input
@@ -165,6 +165,9 @@ const store = useTableDataStore();
 </script>
 
 <style scoped>
+.hideBar label {
+  margin-right: 20px;
+}
 .fas.fa-times {
   display: none;
 }
@@ -335,7 +338,7 @@ th {
 }
 
 .checkbox label {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .redActual {

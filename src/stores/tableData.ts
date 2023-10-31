@@ -80,10 +80,10 @@ export const useTableDataStore = defineStore('data', () => {
   );
 
   const colorMapping = ref<Record<string, string>>({
-    Discontinued: 'red',
-    Launched: 'green',
-    'Launched (with IPU)': 'blue',
-    Announced: 'yellow',
+    Discontinued: 'rgba(255, 0, 0, 0.8)',
+    Launched: 'rgba(0, 255, 0, 0.5)',
+    'Launched (with IPU)': 'rgba(0, 156, 255, 0.5)',
+    Announced: 'rgba(255, 255, 0, 0.5)',
     // ... add other statuses and their corresponding colors
   });
 

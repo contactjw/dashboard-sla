@@ -11,7 +11,7 @@
     // "allowSyntheticDefaultImports": true,
     // "importHelpers": true,
     // "verbatimModuleSyntax": true,
-    "types": ["vue", "vuex"],
+    "types": ["vue"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",

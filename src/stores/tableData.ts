@@ -9,17 +9,17 @@ export const useTableDataStore = defineStore('data', () => {
   const allCheckBox = ref<string[]>([]);
   UIData.value = data;
 
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch('../../public/data.json');
-  //     if (!response.ok) {
-  //       throw new Error('Failed to fetch data');
-  //     }
-  //     UIData.value = await response.json();
-  //   } catch (error) {
-  //     console.error('Failed to fetch data', error);
-  //   }
-  // };
+  const fetchData = async () => {
+    try {
+      const response = await fetch('../assets/data.json');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      UIData.value = await response.json();
+    } catch (error) {
+      console.error('Failed to fetch data', error);
+    }
+  };
 
   const saveData = async () => {
     try {
@@ -102,7 +102,7 @@ export const useTableDataStore = defineStore('data', () => {
   );
 
   const colorMapping = ref<Record<string, string>>({
-    Discontinued: 'rgba(255, 0, 0, 0.8)',
+    Discontinued: 'rgba(255, 0, 0, 0.5)',
     Launched: 'rgba(0, 255, 0, 0.5)',
     'Launched (with IPU)': 'rgba(0, 156, 255, 0.5)',
     Announced: 'rgba(255, 255, 0, 0.5)',
@@ -110,7 +110,7 @@ export const useTableDataStore = defineStore('data', () => {
   });
 
   return {
-    // fetchData,
+    fetchData,
     saveData,
     calstatusRowspan,
     getWWFromDate,

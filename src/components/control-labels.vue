@@ -24,6 +24,7 @@
         />
         <label :for="status">{{ status }}</label>
       </div>
+      <button @click="saveData">Save</button>
     </div>
   </div>
 </template>
@@ -32,6 +33,7 @@
 import { useTableDataStore } from '../stores/tableData';
 
 const store = useTableDataStore();
+const saveData = store.saveData;
 </script>
 
 <style scoped></style>

@@ -2,8 +2,11 @@
   "name": "dashboard-sla",
   "version": "0.0.0",
   "type": "module",
+  "main": "server/index.js",
   "scripts": {
-    "dev": "vite",
+    "dev:frontend": "vite",
+    "dev:backend": "nodemon server/index.js",
+    "dev": "concurrently 'npm:dev:frontend' 'npm:dev:backend'",
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",

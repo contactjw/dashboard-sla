@@ -25,4 +25,6 @@ import { useTableDataStore } from '../stores/tableData';
 const store = useTableDataStore();
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

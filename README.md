@@ -144,11 +144,15 @@ npm run build
 
   - Double click to enter data is in progress. I am in the process of setting up a local node and express server to handle changes to the data.json file. I plan to use axios to handle the http requests as well. I have the outline of the functions mapped out for handling a save to the data.json, but I'm in the process of setting up the node and express server.
 
-  - Sadly I was on a time crunch through a few of the final features I wanted to implement, but I'm certain if I wasn't working 30-40 hours a week and doing full-time classes I could see this through to completion within 7 days. You'll notice these two features are partially completed. The double click to enter data is more like a click in the Threads column to change the data, but it is not reflected in the data.json file yet and there is no input validation yet. Color coding is set up for the Status column, but I'd like to adjust colors more and make the colors extend across the column with a lower opacity so we can still read data easily. A good chunk of my time was used for trying to integrate TypeScript and Vuex, before I found Pinia for state management which simplified the process a lot more with TypeScript.
+  - Sadly I was on a time crunch through a few of the final features I wanted to implement, but I'm certain if I wasn't working 30-40 hours a week and doing full-time classes I could see this through to completion within 7 days. You'll notice there are a few partially completed features. The double click to enter data is more like a click in the columns that had input tags with disabled property, I added a double click event listener, however there is a bug i need to fix for it because disabled inputs do not pick up clicks on the first click.  The change of data on click of the save button is not reflected in the data.json file yet and there is no input validation yet.  A good chunk of my time was used for trying to integrate TypeScript and Vuex, before I found Pinia for state management which simplified the process a lot more with TypeScript.
 
 - Modularizing Table into Smaller Components:
 
-  - I was in the process of modularizing table into smaller components, and managed to do so, but ran out of time to fully integrate the smaller components into table itself. I wanted to focus on atleast partially completing some of the major features as well just to show that I had an inclination of how to work with the features that were asked for.
+  - I'd like to go through this more and see if I can break components down even smaller in a beneficial, reusable way.
+
+- Pagination:
+
+  - I'm in the process of getting the Express server set up and including Pinia store functionality for the data table to be able to handle pagination.  I plan to see this project through to completion this coming weekend due to a busy schedule Mon-Fri.
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

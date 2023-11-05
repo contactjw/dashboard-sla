@@ -2,7 +2,7 @@ table {
   border-collapse: collapse;
 }
 
-input[type='text'] {
+.innerCells input[type='text'] {
   position: absolute;
   right: 0;
   left: 0;

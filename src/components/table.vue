@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import TableHeading from './table-heading.vue';
-import TableBody from './table-body.vue';
-import ControlLabels from './control-labels.vue';
+import TableHeading from './TableHeading.vue';
+import TableBody from './TableBody.vue';
+import ControlLabels from './ControlLabels.vue';
 
 </script>
 
@@ -71,7 +71,7 @@ i {
   margin-right: 4%;
 }
 
-.inputBox {
+.innerCells .inputBox {
   position: absolute;
   top: 0;
   right: 0;
@@ -179,6 +179,7 @@ th {
 .hideBar {
   list-style: none;
   display: flex;
+  align-items: center;
 }
 
 .productColumn {
@@ -189,6 +190,7 @@ th {
 .checkbox {
   list-style: none;
   display: flex;
+  align-items: center;
 }
 
 .checkbox label {

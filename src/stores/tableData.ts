@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue'; // Import Composition API functions
+import { ref, computed, watch } from 'vue'; // Import Composition API functions
 import axios from 'axios';
 import data from '../assets/data.json';
 
@@ -108,6 +108,28 @@ export const useTableDataStore = defineStore('data', () => {
     Announced: 'rgba(255, 255, 0, 0.5)',
     // ... add other statuses and their corresponding colors
   });
+
+
+  // search bar ( I ALREADY APPLIED SEARCH TO THE INPUT IN CONTROL-LABELS.vue)
+  const showSearchBoxProducts = () => {
+    const styledElement: HTMLInputElement | null = document.querySelector('.styled');
+    const search = document.querySelector('.searchInput');
+
+    watch(search, () => {
+      status.value = q.filter((quiz) => quiz.name.toLowerCase().includes(search.value.toLowerCase()))
+    })
+
+    if (styledElement && styledElement instanceof HTMLInputElement) {
+      if (styledElement.checked) {
+        hidestatus.value = productDataBystatus.value.status;
+        allCheckBox.value = productDataBystatus.value.status;
+      } else {
+        hidestatus.value = [];
+        allCheckBox.value = [];
+      }
+    }
+  };
+  
 
   return {
     fetchData,
